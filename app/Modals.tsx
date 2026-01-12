@@ -1,5 +1,5 @@
 "use client";
-import { FaTimes, FaUserGraduate, FaSchool, FaUserTie } from "react-icons/fa";
+import { FaTimes, FaUserGraduate, FaSchool, FaUserTie, FaPray } from "react-icons/fa";
 
 interface ModalProps {
   isOpen: boolean;
@@ -34,11 +34,13 @@ function Modal({ isOpen, onClose, title, icon, children }: ModalProps) {
 export function StudentModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Student Registration" icon={<FaUserGraduate className="text-[#f4951d] text-xl" />}>
-      <form className="space-y-4">
-        <input type="text" placeholder="Full Name" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+      <form
+        className="space-y-4"
+      >
+        <input type="text" name="full_name" placeholder="Full Name" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
         <div className="grid grid-cols-2 gap-4">
-          <input type="date" placeholder="Date of Birth" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-          <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none bg-white">
+          <input type="date" placeholder="Date of Birth" name="dob" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+          <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none bg-white" name="gender">
             <option value="">Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
@@ -46,8 +48,8 @@ export function StudentModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
           </select>
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <input type="number" placeholder="Age" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-          <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none bg-white">
+          <input type="number" placeholder="Age" name="age" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+          <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none bg-white" name="class_name">
             <option>Class</option>
             <option>Nursery</option>
             <option>L.K.G</option>
@@ -55,14 +57,39 @@ export function StudentModal({ isOpen, onClose }: { isOpen: boolean; onClose: ()
             {[...Array(7)].map((_, i) => <option key={i}>{i + 1}</option>)}
           </select>
         </div>
-        <input type="text" placeholder="School Name" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-        <input type="text" placeholder="Parent's Name" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+        <input type="text" placeholder="School Name" name="school_name" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+        <input type="text" placeholder="Parent's Name" name="parent_name" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
         <div className="grid grid-cols-2 gap-4">
-          <input type="tel" placeholder="Contact Number" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-          <input type="email" placeholder="Email Address" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+          <input type="tel" placeholder="Contact Number" name="phone" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+          <input type="email" placeholder="Email Address" name="email" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
         </div>
-        <textarea placeholder="Residential Address" rows={2} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none"></textarea>
+        <textarea placeholder="Residential Address" name="address" rows={2} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none"></textarea>
         <button className="w-full bg-[#0cab47] text-white font-bold py-3 rounded-lg hover:bg-green-700 transition shadow-lg">Register Student</button>
+      </form>
+    </Modal>
+  );
+}
+
+export function ParentModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  return (
+    <Modal isOpen={isOpen} onClose={onClose} title="Parent Registration" icon={<FaUserTie className="text-[#f4951d] text-xl" />}>
+      <form
+
+        className="space-y-4">
+        <input type="text" placeholder="Full Name" name="full_name" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+        <input type="text" placeholder="Occupation" name="occupation" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+        <div className="grid grid-cols-2 gap-4">
+          <input type="number" placeholder="Annual Income" name="annual_income" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+          <input type="number" placeholder="No. of Children" name="no_of_children" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+        </div>
+        <input type="tel" placeholder="Phone Number" name="phone_number" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+        <input type="email" placeholder="Email Address" name="email" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+        <textarea placeholder="Residential Address" name="address" rows={2} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none"></textarea>
+        <div className="grid grid-cols-2 gap-4">
+          <input type="text" placeholder="City" name="city" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+          <input type="text" placeholder="State" name="state" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
+        </div>
+        <button className="w-full bg-[#f4951d] text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition shadow-lg">Register Parent</button>
       </form>
     </Modal>
   );
@@ -85,29 +112,6 @@ export function SchoolModal({ isOpen, onClose }: { isOpen: boolean; onClose: () 
           <input type="number" placeholder="Established Year" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
         </div>
         <button className="w-full bg-[#00468e] text-white font-bold py-3 rounded-lg hover:bg-blue-900 transition shadow-lg">Register School</button>
-      </form>
-    </Modal>
-  );
-}
-
-export function ParentModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
-  return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Parent Registration" icon={<FaUserTie className="text-[#f4951d] text-xl" />}>
-      <form className="space-y-4">
-        <input type="text" placeholder="Full Name" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-        <input type="text" placeholder="Occupation" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-        <div className="grid grid-cols-2 gap-4">
-          <input type="number" placeholder="Annual Income" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-          <input type="number" placeholder="No. of Children" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-        </div>
-        <input type="tel" placeholder="Phone Number" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-        <input type="email" placeholder="Email Address" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-        <textarea placeholder="Residential Address" rows={2} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none"></textarea>
-        <div className="grid grid-cols-2 gap-4">
-          <input type="text" placeholder="City" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-          <input type="text" placeholder="State" className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00468e] outline-none" />
-        </div>
-        <button className="w-full bg-[#f4951d] text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition shadow-lg">Register Parent</button>
       </form>
     </Modal>
   );

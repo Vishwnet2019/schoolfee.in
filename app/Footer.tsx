@@ -8,6 +8,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -20,10 +21,19 @@ export default function Footer() {
 
           {/* Column 1: Brand */}
           <div>
-            <h3 className="text-3xl font-bold mb-6 text-white">Schoolfee.in</h3>
+            {/* LOGO */}
+            <Link
+              href="/"
+              className="flex-shrink-0 flex items-center cursor-pointer"
+            >
+              <img
+                src="/logo.jpg"
+                alt="Schoolfee"
+                className="h-16 w-auto object-contain rounded-md mb-3"
+              />
+            </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              A collaborative initiative of Community Health Mission (CHM).
-              Ensuring education continuity and mental well-being for every child.
+              Schoolfee is a collaborative initiative of Community Health Mission (CHM). Ensuring education continuity and mental well-being for every child.
             </p>
 
             <div className="flex space-x-4">
@@ -115,15 +125,15 @@ export default function Footer() {
             <ul className="space-y-4 text-gray-400 text-sm">
               <li className="flex items-start gap-3">
                 <FaMapMarkerAlt className="mt-1 text-[#0cab47]" />
-                <span>123 Education Lane, Knowledge Park, New Delhi, India</span>
+                <span>New Delhi, India</span>
               </li>
               <li className="flex items-center gap-3">
                 <FaPhone className="text-[#0cab47]" />
-                <span>+91 98765 43210</span>
+                <span>+91 9355355233</span>
               </li>
               <li className="flex items-center gap-3">
                 <FaEnvelope className="text-[#0cab47]" />
-                <span>support@schoolfee.in</span>
+                <span>admin@schoolfee.in</span>
               </li>
             </ul>
           </div>
@@ -133,7 +143,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm flex flex-col md:flex-row justify-between items-center relative z-10">
           <p>&copy; {new Date().getFullYear()} Schoolfee.in. All rights reserved.</p>
           <p className="flex items-center mt-2 md:mt-0">
-            Made with <FaHeart className="text-[#f4951d] mx-1" /> for Education
+            Developerd By  <a href="https://vishwnet.com" className="ms-1 text-[#f4951d]">  Vishwnet India</a>
           </p>
         </div>
       </div>

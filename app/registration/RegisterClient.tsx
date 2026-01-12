@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FaUserGraduate, FaSchool, FaUserTie, FaCheckCircle, FaArrowRight } from "react-icons/fa";
-import { StudentModal, SchoolModal, ParentModal } from "./Modals";
+import { StudentModal, SchoolModal, ParentModal } from "../Modals";
 
 export default function RegistrationPage() {
   const [modalType, setModalType] = useState<"student" | "school" | "parent" | null>(null);
@@ -72,10 +72,10 @@ export default function RegistrationPage() {
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         <div className="relative max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-            Start Your <span className="text-[#f4951d]"> Registration</span>
+            Join Our <span className="text-[#f4951d]">Community</span>
           </h1>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-            Begin your registration by selecting your role to receive personalised financial solutions and educational support.
+            Select your role below to access tailored financial solutions and educational support designed to help you succeed.
           </p>
         </div>
       </div>

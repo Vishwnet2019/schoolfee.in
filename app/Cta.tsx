@@ -48,140 +48,102 @@ export default function CTASection() {
   ];
 
   return (
-    <section className="relative py-20 lg:py-28 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden">
-      {/* Background Elements */}
+    <section className="relative py-10 lg:py-8 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden">
       <div className="absolute top-0 left-0 w-96 h-96 bg-[#f4951d] rounded-full blur-[150px] opacity-10"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#0cab47] rounded-full blur-[150px] opacity-10"></div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          
+      <div className="relative max-w-7xl mx-auto px-2 sm:px-2 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 sm:gap-10 lg:gap-16">
+
           {/* Left Content */}
-          <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-6">
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-4xl font-bold text-[#00468e] leading-tight">
-                <span className="text-[#f4951d]">Join Us</span> in Supporting Education and Mental Health 
-              </h2>
-              
-              <p className="text-base text-gray-700 leading-relaxed">
-                Schoolfee is more than a financial support platform—it is a movement to protect children's education, confidence, and mental health. By standing with parents during difficult moments, we help build stronger families, healthier students, and brighter futures.
-              </p>
-            </div>
+          <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-4 sm:space-y-5 lg:space-y-6 text-left">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#00468e] leading-tight">
+              <span className="text-[#f4951d]">Join Us</span> in Supporting Education and Mental Health
+            </h2>
 
+            <p className="text-base text-gray-700 leading-relaxed">
+              Schoolfee is more than a financial support platform—it is a movement to protect children's education, confidence, and mental health. By standing with parents during difficult moments, we help build stronger families, healthier students, and brighter futures.
+            </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
-              <a 
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <a
                 href="/registration"
-                className="inline-flex items-center gap-2 px-6 py-3 text-base font-bold text-white transition-all duration-300 bg-gradient-to-r from-[#f4951d] to-[#ffc107] rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 group"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-bold text-white transition-all duration-300 bg-[#f4951d] rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 group"
               >
                 Get Started Today
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </a>
-              
-              <a 
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 text-base font-bold text-[#00468e] transition-all duration-300 bg-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 border-2 border-[#00468e]"
+
+              <a
+                href="/contact-us"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-bold text-[#00468e] transition-all duration-300 bg-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 border-2 border-[#00468e]"
               >
                 <FaEnvelope />
-                Contact Support
+                Contact Us
               </a>
             </div>
           </div>
 
-          {/* Right Side - Team Members Network */}
+          {/* Right Side */}
           <div className="w-full lg:w-1/2 flex items-center justify-center">
-            <div className="relative w-full max-w-lg h-[500px]">
-              {/* Center Hub */}
+
+            {/* Desktop Network */}
+            <div className="relative w-full max-w-lg h-[420px] hidden lg:block">
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                <div className="w-28 h-28 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-[#00468e]">
+                <div className="w-24 h-24 bg-white rounded-full shadow-xl flex items-center justify-center border-4 border-[#00468e]">
                   <div className="text-center">
-                    <FaHandHoldingHeart className="text-3xl text-[#00468e] mx-auto mb-1" />
+                    <FaHandHoldingHeart className="text-2xl text-[#00468e] mx-auto mb-1" />
                     <p className="text-xs font-bold text-[#00468e]">Schoolfee</p>
                     <p className="text-xs text-gray-600">Team</p>
                   </div>
                 </div>
               </div>
 
-              {/* Team Members */}
               {teamMembers.map((member, index) => {
                 const angle = (index * 60) * (Math.PI / 180);
-                const radius = 160;
+                const radius = 140;
                 const x = Math.cos(angle) * radius;
                 const y = Math.sin(angle) * radius;
-                
+
                 return (
                   <div
                     key={index}
-                    className="absolute animate-float hidden lg:block"
+                    className="absolute animate-float"
                     style={{
                       top: `calc(50% + ${y}px)`,
                       left: `calc(50% + ${x}px)`,
-                      transform: 'translate(-50%, -50%)',
+                      transform: "translate(-50%, -50%)",
                       animationDelay: `${index * 0.2}s`
                     }}
                   >
-                    {/* Connection Line */}
-                    <svg 
-                      className="absolute top-1/2 left-1/2 pointer-events-none"
-                      style={{
-                        width: Math.abs(x * 2) + 'px',
-                        height: Math.abs(y * 2) + 'px',
-                        transform: 'translate(-50%, -50%)'
-                      }}
-                    >
-                      <line
-                        x1="50%"
-                        y1="50%"
-                        x2={x < 0 ? '100%' : '0%'}
-                        y2={y < 0 ? '100%' : '0%'}
-                        stroke="#00468e"
-                        strokeWidth="2"
-                        strokeDasharray="5,5"
-                        opacity="0.3"
-                      />
-                    </svg>
-
-                    {/* Member Card */}
-                    <div className="relative group cursor-pointer">
-                      <div className={`w-20 h-20 ${member.color} rounded-full p-1 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
-                        <img 
-                          src={member.image} 
-                          alt={member.name}
-                          className="w-full h-full rounded-full object-cover border-3 border-white"
-                        />
+                    <div className="relative group">
+                      <div className={`w-16 h-16 ${member.color} rounded-full p-1 shadow-lg group-hover:scale-110 transition-transform`}>
+                        <img src={member.image} alt={member.name} className="w-full h-full rounded-full object-cover border-2 border-white" />
                       </div>
-                      
-                      {/* Info Badge */}
-                      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded-full shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+
+                      <div className="absolute -bottom-7 left-1/2 transform -translate-x-1/2 bg-white px-2 py-1 rounded-full shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
                         <p className="text-xs font-bold text-[#00468e]">{member.name}</p>
-                        <p className="text-xs text-gray-600">📍 {member.location}</p>
+                        <p className="text-xs text-gray-600">{member.location}</p>
                       </div>
-
-                      {/* Pulse Effect */}
-                      <div className={`absolute inset-0 ${member.color} rounded-full animate-ping opacity-20`}></div>
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Mobile View - Simpler Layout */}
-            <div className="lg:hidden grid grid-cols-3 gap-4 w-full max-w-md">
+            {/* Mobile & Tablet Grid */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 w-full  lg:hidden">
               {teamMembers.map((member, index) => (
-                <div key={index} className="text-center">
-                  <div className={`w-20 h-20 ${member.color} rounded-full p-1 shadow-lg mx-auto mb-2`}>
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full h-full rounded-full object-cover border-2 border-white"
-                    />
+                <div key={index} className="text-left">
+                  <div className={`w-16 h-16 ${member.color} rounded-full p-1 shadow-md mb-1`}>
+                    <img src={member.image} alt={member.name} className="w-full h-full rounded-full object-cover border-2 border-white" />
                   </div>
                   <p className="text-xs font-bold text-[#00468e]">{member.name}</p>
-                  <p className="text-xs text-gray-600">📍 {member.location}</p>
+                  <p className="text-xs text-gray-600">{member.location}</p>
                 </div>
               ))}
             </div>
+
           </div>
         </div>
       </div>
@@ -189,7 +151,7 @@ export default function CTASection() {
       <style jsx>{`
         @keyframes float {
           0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
-          50% { transform: translate(-50%, -50%) translateY(-10px); }
+          50% { transform: translate(-50%, -50%) translateY(-8px); }
         }
         .animate-float {
           animation: float 3s ease-in-out infinite;

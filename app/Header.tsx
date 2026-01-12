@@ -9,7 +9,7 @@ export default function Header() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about-us" },
+    { name: "About Us", href: "/about-us" },
     { name: "Contact Us", href: "/contact-us" },
   ];
 
@@ -26,7 +26,7 @@ export default function Header() {
             <img
               src="/logo.jpg"
               alt="Schoolfee"
-              className="h-16 w-auto object-contain"
+              className="h-16 sm:h-15 w-1/2 sm:w-auto object-contain"
             />
           </Link>
 
